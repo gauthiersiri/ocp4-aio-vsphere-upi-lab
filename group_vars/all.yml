@@ -8,6 +8,16 @@ config:
   pull_secret: "{{ lookup('file', '~/pull-secret.json') }}"
   worker_prefix: worker
   networktype: OpenShiftSDN
+  registry:
+    storage_size: "100Gi"
+    storage_classname: "thin"
+
+ocs:
+  version: "4.8"
+  storage_capacity: "2Ti" #can be 512Gi or 2Ti or 4Ti
+  storage_classname: "vsphere-ocs"
+  datastore_ocs: "Test-migration-OCS-source"
+
 vcenter:
   ip: 10.0.0.200
   datastore: ds0
@@ -25,7 +35,7 @@ download:
   channel: stable
   version: 4.9
   govc: https://github.com/vmware/govmomi/releases/download/v0.24.0/govc_linux_amd64.gz
-  butane: https://github.com/coreos/butane/releases/download/v0.10.0/fcct-x86_64-unknown-linux-gnu
+  butane: https://github.com/coreos/butane/releases/download/v0.7.0/fcct-x86_64-unknown-linux-gnu
 coredns_vm:
   name: coredns
   ipaddr: 10.0.0.10

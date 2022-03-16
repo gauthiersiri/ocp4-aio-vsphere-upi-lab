@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: False
+  environment:
+    PATH: "{{ playbook_dir }}/bin:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Run OCS install
+      import_role:
+        name: add_ocs

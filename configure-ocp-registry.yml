@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: False
+  environment:
+    PATH: "{{ playbook_dir }}/bin:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Configure OCP internal registry
+      import_role:
+        name: configure_image_registry
