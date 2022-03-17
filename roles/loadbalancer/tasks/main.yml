@@ -53,7 +53,7 @@
      - key: guestinfo.ignition.config.data.encoding
        value: base64
      - key: guestinfo.afterburn.initrd.network-kargs
-       value: "ip={{ lb_vm.ipaddr }}::{{ static_ip.gateway }}:{{ static_ip.netmask }}:{{ infraID.stdout }}-{{ lb_vm.name }}:ens192:off:{{ coredns_vm.ipaddr }}" # noqa 204
+       value: "ip={{ lb_vm.ipaddr }}::{{ static_ip.gateway }}:{{ static_ip.netmask }}::ens192:off:{{ coredns_vm.ipaddr }}" # noqa 204
 
 - name: "Remove {{ lb_tempdir.path }} and contents"
   file:
